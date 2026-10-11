@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khan Jee Restaurant | The Royal Taste of Tradition & Spices - Jacobabad</title>
+    <meta name="description" content="Experience the finest Shinwari Karahi, Royal Mutton Biryani, Charcoal BBQ, and fresh Mughlai food at Khan Jee Restaurant Jacobabad. Order online for fast delivery or reserve your table.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo" id="brandLogo">
+                <div class="logo-icon">👑</div>
+                <div class="logo-text">
+                    <h1>KHAN <span>JEE</span></h1>
+                    <p>Royal Restaurant</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu & Order</a></li>
+                <li><a href="#deals" class="nav-link">Deals</a></li>
+                <li><a href="#reservation" class="nav-link">Book a Table</a></li>
+                <li><a href="#about" class="nav-link">Our Story</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Navigation Actions -->
+            <div class="nav-actions">
+                <!-- Cart Icon Button -->
+                <button class="btn-icon" id="cartBtn" title="View Cart">
+                    🛒
+                    <span class="cart-badge" id="navCartBadge" style="display:none;">0</span>
+                </button>
+
+                <!-- Admin Portal Button -->
+                <a href="admin.html" class="btn-admin" id="adminPortalBtn" title="Restaurant Admin Panel">
+                    <span>⚙️</span>
+                    <span>Admin Panel</span>
+                </a>
+
+                <!-- Mobile Menu Hamburger -->
+                <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg-glow"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Hero Left Content -->
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="pulse"></span>
+                            <span>Open Now • 12:00 PM – 02:00 AM • Jacobabad</span>
+                        </div>
+                        <h1 class="hero-title">
+                            The Royal Taste of
+                            <span class="text-gold">Tradition & Spices</span>
+                        </h1>
+                        <p class="hero-desc">
+                            Welcome to <strong>Khan Jee Restaurant</strong>. Indulge in authentic Shinwari Karahis, slow-cooked Dum Biryanis, succulent char-grilled BBQ, and freshly baked Roghani Naans prepared with pure desi ghee and heirloom secret spices.
+                        </p>
+                        <div class="hero-ctas">
+                            <a href="#menu" class="btn-primary">
+                                <span>🍽️ Order Online</span>
+                            </a>
+                            <a href="#reservation" class="btn-secondary">
+                                <span>📅 Book VIP Table</span>
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <h3>50<span>+</span></h3>
+                                <p>Royal Dishes</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100<span>%</span></h3>
+                                <p>Fresh Halal Meat</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>30<span>m</span></h3>
+                                <p>Express Delivery</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Right Showcase Visual -->
+                    <div class="hero-visual">
+                        <div class="hero-dish-card">
+                            <div class="hero-dish-img">
+                                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80" alt="Khan Jee Special Karahi">
+                            </div>
+                            <!-- Floating Highlights -->
+                            <div class="floating-badge badge-top">
+                                <div class="floating-badge-icon">🔥</div>
+                                <div class="floating-badge-info">
+                                    <h5>Signature Shinwari</h5>
+                                    <p>Pure Organic Ghee & Tomatoes</p>
+                                </div>
+                            </div>
+                            <div class="floating-badge badge-bottom">
+                                <div class="floating-badge-icon">⭐</div>
+                                <div class="floating-badge-info">
+                                    <h5>4.9 / 5.0 Rating</h5>
+                                    <p>Based on 1,500+ Local Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Strip -->
+        <section class="features-strip">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">🥩</div>
+                        <div class="feature-info">
+                            <h4>100% Halal & Fresh</h4>
+                            <p>Hand-picked cuts daily, zero frozen meat</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">👨‍🍳</div>
+                        <div class="feature-info">
+                            <h4>Master Chefs</h4>
+                            <p>Generations of authentic culinary heritage</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-info">
+                            <h4>Fast Jacobabad Delivery</h4>
+                            <p>Hot and steaming at your doorstep in 30 mins</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🏰</div>
+                        <div class="feature-info">
+                            <h4>Royal VIP Ambience</h4>
+                            <p>Private family cabins & luxury dining hall</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promotional Deal Section -->
+        <section class="promo-section" id="deals">
+            <div class="container">
+                <div class="promo-banner">
+                    <div class="promo-content">
+                        <span class="section-tag">Limited Time Feast</span>
+                        <h3>Khan Jee Royal Family Feast • <span>20% OFF</span></h3>
+                        <p>Enjoy our best-selling Mutton Dum Biryani, Chicken Karahi & Malai Boti with extra naan and chilled drinks.</p>
+                        <div class="promo-coupon">
+                            <span>Use Promo Code:</span>
+                            <span class="coupon-code">KHAN20</span>
+                            <span>at checkout</span>
+                        </div>
+                    </div>
+                    <div class="promo-action">
+                        <a href="#menu" class="btn-primary" style="padding:16px 36px; font-size:1.05rem;">
+                            Order Feast Now 🍗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Food Menu Section -->
+        <section class="section" id="menu">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Explore The Taste</span>
+                    <h2 class="section-title">Our Royal <span>E-Commerce Menu</span></h2>
+                    <p class="section-subtitle">Choose your favorite sizzling dishes, customize quantities, and order with instant delivery or takeaway across Jacobabad.</p>
+                </div>
+
+                <!-- Category Tabs & Search Controls -->
+                <div class="menu-controls">
+                    <!-- Category Scroll Tabs -->
+                    <div class="category-filter-scroll">
+                        <div class="category-tabs" id="categoryTabs">
+                            <button class="cat-tab active" data-category="all">
+                                <span class="tab-icon">✨</span>
+                                <span>All Dishes</span>
+                            </button>
+                            <button class="cat-tab" data-category="karahi">
+                                <span class="tab-icon">🍲</span>
+                                <span>Karahi & Handi</span>
+                            </button>
+                            <button class="cat-tab" data-category="biryani">
+                                <span class="tab-icon">🍚</span>
+                                <span>Royal Biryani</span>
+                            </button>
+                            <button class="cat-tab" data-category="bbq">
+                                <span class="tab-icon">🍢</span>
+                                <span>BBQ & Grills</span>
+                            </button>
+                            <button class="cat-tab" data-category="desi">
+                                <span class="tab-icon">🥘</span>
+                                <span>Desi Delicacies</span>
+                            </button>
+                            <button class="cat-tab" data-category="fastfood">
+                                <span class="tab-icon">🍔</span>
+                                <span>Fast Food</span>
+                            </button>
+                            <button class="cat-tab" data-category="breads">
+                                <span class="tab-icon">🫓</span>
+                                <span>Tandoor & Breads</span>
+                            </button>
+                            <button class="cat-tab" data-category="desserts">
+                                <span class="tab-icon">🍨</span>
+                                <span>Desserts & Drinks</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search & Sort Toolbar -->
+                    <div class="menu-toolbar">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="menuSearchInput" placeholder="Search dishes (e.g. Biryani, Shinwari, Tikka, Naan)...">
+                        </div>
+                        <div class="filter-options">
+                            <label for="menuSortSelect" style="font-size:0.85rem; color:var(--text-muted);">Sort by:</label>
+                            <select id="menuSortSelect" class="filter-select">
+                                <option value="featured">Featured Dishes</option>
+                                <option value="popular">Most Popular First</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Cards Grid (Dynamic JS Loaded) -->
+                <div class="menu-grid" id="menuGrid">
+                    <!-- Rendered by js/app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Table Reservation Section -->
+        <section class="section reservation-section" id="reservation">
+            <div class="container">
+                <div class="res-wrapper">
+                    <!-- Left Info -->
+                    <div class="res-info">
+                        <span class="section-tag">VIP Dining</span>
+                        <h3>Reserve Your Royal Table</h3>
+                        <p>
+                            Planning a family gathering, business dinner, or anniversary? Book our air-conditioned VIP family suites or open rooftop stargazing dining lounge for an unforgettable experience.
+                        </p>
+                        <div class="res-features">
+                            <div class="res-feat-item">
+                                <div class="feat-icon">🍷</div>
+                                <span>Private air-conditioned family cabins with curtains</span>
+                            </div>
+                            <div class="res-feat-item">
+                                <div class="feat-icon">👨‍🍳</div>
+                                <span>Pre-order options so your feast is served hot on arrival</span>
+                            </div>
+                            <div class="res-feat-item">
+                                <div class="feat-icon">🚗</div>
+                                <span>Spacious dedicated valet car parking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form -->
+                    <div class="res-form-container">
+                        <form class="res-form" id="tableBookingForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="resName">Your Full Name *</label>
+                                    <input type="text" id="resName" placeholder="e.g. Sardar Hamza" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resPhone">Phone Number *</label>
+                                    <input type="tel" id="resPhone" placeholder="0300-1234567" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resGuests">Number of Guests *</label>
+                                    <select id="resGuests" required>
+                                        <option value="2">2 Persons (Couple)</option>
+                                        <option value="4" selected>4 Persons (Small Family)</option>
+                                        <option value="6">6 Persons (Family)</option>
+                                        <option value="8">8 Persons (Large Group)</option>
+                                        <option value="12">12+ Persons (Banquet)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resTableType">Seating Preference</label>
+                                    <select id="resTableType">
+                                        <option value="VIP Family Hall">VIP Family Hall (Private)</option>
+                                        <option value="Open Terrace / Rooftop">Open Rooftop Terrace</option>
+                                        <option value="Executive Dining">Executive Hall</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resDate">Reservation Date *</label>
+                                    <input type="date" id="resDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resTime">Preferred Time Slot *</label>
+                                    <input type="time" id="resTime" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="resRequests">Special Requests / Occasion</label>
+                                    <textarea id="resRequests" rows="3" placeholder="Birthday decoration, baby chair, specific spice preferences..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width:100%;">
+                                Confirm Table Reservation 🥂
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story & Heritage -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual">
+                        <div class="about-img-main">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Khan Jee Royal Kitchen">
+                        </div>
+                        <div class="about-experience-badge">
+                            <h3>25+</h3>
+                            <p>Years of Culinary Perfection</p>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <span class="section-tag">Since 1999</span>
+                        <h3>Crafting Royal Memories Through Authentic Food</h3>
+                        <p>
+                            Founded in the historic city of Jacobabad, <strong>Khan Jee Restaurant</strong> was created with a singular mission: to bring authentic Shinwari, Balochi Sajji, Peshawari BBQ, and Mughlai curries cooked without shortcuts, using pure animal fat, stone-ground garam masalas, and pristine cuts of mutton and chicken.
+                        </p>
+                        <p>
+                            Every pot of Karahi is sizzled over high-flame iron woks right before your eyes. Our tandoor chefs masterfully slap garlic-flecked dough against volcanic clay ovens to bring you unmatched culinary joy.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-card">
+                                <h5><span>✓</span> Pure Ingredients</h5>
+                                <p>Cold-pressed oils, pure butter, and unadulterated spices.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h5><span>✓</span> Strict Hygiene</h5>
+                                <p>ISO certified food handling and spotless open kitchen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="section" id="reviews" style="background:var(--bg-surface);">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Loved By Thousands</span>
+                    <h2 class="section-title">What Jacobabad <span>Says About Us</span></h2>
+                    <p class="section-subtitle">Real feedback from food lovers who trust Khan Jee for their family dinners and daily cravings.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">
+                                "The Shinwari Mutton Karahi here is literally world-class. Melt-in-mouth meat with just tomatoes, green chillies, and black pepper. Unmatched taste in Jacobabad!"
+                            </p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">MB</div>
+                            <div class="author-info">
+                                <h5>Mir Babar Khan</h5>
+                                <p>Local Food Critic</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">
+                                "Ordered through the online website and my food arrived in 25 minutes piping hot! The Mutton Dum Biryani was fragrant and saffron-infused. 10/10 service."
+                            </p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">AZ</div>
+                            <div class="author-info">
+                                <h5>Advocate Zameer Ali</h5>
+                                <p>Verified Online Customer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">
+                                "Reserved a table in the VIP family hall for my daughter's birthday. The ambiance was royal, courteous waiters, and the Chicken Malai Boti melted like butter."
+                            </p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SS</div>
+                            <div class="author-info">
+                                <h5>Dr. Salma Soomro</h5>
+                                <p>Family Dining Guest</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Find Us</span>
+                    <h2 class="section-title">Visit <span>Khan Jee Restaurant</span></h2>
+                    <p class="section-subtitle">We are located conveniently at the heart of Jacobabad. Drop by for dining or call for swift doorstep delivery.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Details -->
+                    <div class="contact-card">
+                        <h3 style="font-size:1.6rem; color:#fff; font-family:var(--font-heading);">Get in Touch</h3>
+                        <p style="color:var(--text-secondary); margin-top:8px;">Have a party order or inquiry? Our manager is available round the clock.</p>
+
+                        <div class="contact-details-list">
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-text">
+                                    <h5>Restaurant Address</h5>
+                                    <p>VIP Road, Near Shahi Bazaar & DC Complex, Jacobabad, Sindh, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-text">
+                                    <h5>Delivery Hotlines</h5>
+                                    <p>+92 300 1234567 • +92 333 7654321</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">⏰</div>
+                                <div class="contact-text">
+                                    <h5>Opening Hours</h5>
+                                    <p>Monday – Sunday: 12:00 PM – 02:00 AM (Open 7 Days)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:35px; display:flex; gap:14px; flex-wrap:wrap;">
+                            <a href="tel:+923001234567" class="btn-primary">
+                                📞 Call To Order
+                            </a>
+                            <a href="https://wa.me/923001234567" target="_blank" class="btn-secondary">
+                                💬 WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Location Visual / Map Card -->
+                    <div class="map-card">
+                        <div class="map-placeholder">
+                            <div class="pin-icon">📍</div>
+                            <h4>VIP Road, Jacobabad</h4>
+                            <p>Centrally located with free parking and family friendly environment</p>
+                        </div>
+                        <div class="map-info-bar">
+                            <div>
+                                <strong style="color:#fff; font-size:0.95rem;">Delivery Radius:</strong>
+                                <p style="color:var(--text-secondary); font-size:0.82rem;">Delivering anywhere within 15 km in Jacobabad City</p>
+                            </div>
+                            <span class="status-pill status-delivered">Deliveries Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">👑</div>
+                        <div class="logo-text">
+                            <h1>KHAN <span>JEE</span></h1>
+                            <p>Royal Restaurant</p>
+                        </div>
+                    </div>
+                    <p>
+                        Jacobabad's premier royal culinary destination. Serving true authentic Shinwari, Dum Biryani, BBQ, and traditional handis since 1999.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="Facebook">FB</a>
+                        <a href="#" class="social-btn" title="Instagram">IG</a>
+                        <a href="#" class="social-btn" title="WhatsApp">WA</a>
+                        <a href="#" class="social-btn" title="YouTube">YT</a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Online Menu</a></li>
+                        <li><a href="#deals">Special Deals</a></li>
+                        <li><a href="#reservation">Book a Table</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Popular Categories -->
+                <div class="footer-col">
+                    <h4>Our Specials</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Shinwari Mutton Karahi</a></li>
+                        <li><a href="#menu">Dum Mutton Biryani</a></li>
+                        <li><a href="#menu">Chicken Malai Boti</a></li>
+                        <li><a href="#menu">Shahi Beef Nihari</a></li>
+                        <li><a href="#menu">Garlic Roghani Naan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Timings -->
+                <div class="footer-col">
+                    <h4>Service Hours</h4>
+                    <div class="footer-hours-list">
+                        <div class="hours-row">
+                            <span>Lunch Hours:</span>
+                            <span>12:00 PM – 04:30 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Evening & Dinner:</span>
+                            <span>06:00 PM – 02:00 AM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Home Delivery:</span>
+                            <span>All Day Fast Service</span>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px; font-size:0.85rem; color:var(--text-muted);">
+                        💳 Cash on Delivery, JazzCash & EasyPaisa Accepted
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Khan Jee Restaurant Jacobabad. All Rights Reserved.</p>
+                <p>Designed with High Standards • Built with HTML5, CSS3 & JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Slide-out Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><span>🛒</span> Your Food Tray</h3>
+            <button class="close-btn" id="closeCartDrawer">✕</button>
+        </div>
+        
+        <!-- Cart Items List Container -->
+        <div class="cart-body" id="cartDrawerItems">
+            <!-- Populated via JS -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer">
+            <div class="cart-coupon-wrap">
+                <input type="text" id="couponCodeInput" placeholder="PROMO CODE (e.g. KHAN20)">
+                <button class="btn-apply-coupon" id="btnApplyCoupon">Apply</button>
+            </div>
+
+            <div class="cart-totals">
+                <div class="totals-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">Rs. 0</span>
+                </div>
+                <div class="totals-row discount-row" id="cartDiscountRow" style="display:none;">
+                    <span>Discount:</span>
+                    <span id="cartDiscount">-Rs. 0</span>
+                </div>
+                <div class="totals-row">
+                    <span>Delivery Fee:</span>
+                    <span id="cartDeliveryFee">Rs. 150</span>
+                </div>
+                <div class="totals-row grand-total">
+                    <span>Grand Total:</span>
+                    <span id="cartGrandTotal">Rs. 0</span>
+                </div>
+            </div>
+
+            <button class="btn-primary btn-checkout-drawer" id="btnCartCheckout" disabled>
+                Proceed to Checkout 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button for Mobile -->
+    <button class="floating-cart-btn" id="mobileFloatingCart" onclick="openCartDrawer()" style="display:none;">
+        <span>🛒 View Tray</span>
+        <span class="mobile-cart-badge cart-badge">0</span>
+    </button>
+
+    <!-- Modal 1: Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Dish Information</h3>
+                <button class="close-btn" onclick="closeModal('quickViewModal')">✕</button>
+            </div>
+            <div class="modal-body" id="quickViewContent">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+                <button class="close-btn" onclick="closeModal('checkoutModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="checkoutOrderSummary"></div>
+
+                <form id="checkoutForm">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Delivery Method</label>
+                            <div style="display:flex; gap:16px; margin-top:4px;">
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; color:#fff;">
+                                    <input type="radio" name="deliveryType" value="Delivery" checked>
+                                    🛵 Doorstep Delivery (Jacobabad)
+                                </label>
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; color:#fff;">
+                                    <input type="radio" name="deliveryType" value="Pickup">
+                                    🥡 Takeaway / Self Pickup
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custName">Your Name *</label>
+                            <input type="text" id="custName" placeholder="Full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custPhone">Phone Number *</label>
+                            <input type="tel" id="custPhone" placeholder="0300-1234567" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="custAddress">Delivery Address *</label>
+                            <input type="text" id="custAddress" placeholder="House / Shop #, Street, Colony, Jacobabad">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custPaymentMethod">Payment Option</label>
+                            <select id="custPaymentMethod">
+                                <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                                <option value="JazzCash / EasyPaisa">JazzCash / EasyPaisa</option>
+                                <option value="Bank Transfer">Online Bank Transfer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="custNotes">Special Cooking or Delivery Instructions</label>
+                            <input type="text" id="custNotes" placeholder="e.g. Extra spicy, less oil, ring the bell softly...">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width:100%; margin-top:14px; padding:14px;">
+                        Place Order Now 🔥
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Order Receipt Modal -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Order Receipt</h3>
+                <button class="close-btn" onclick="closeModal('receiptModal')">✕</button>
+            </div>
+            <div class="modal-body" id="receiptContent">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

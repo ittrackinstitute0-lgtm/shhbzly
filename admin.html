@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khan Jee Restaurant | Executive Admin Portal</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- Security Login Screen Overlay -->
+    <div class="login-screen" id="adminLoginScreen">
+        <div class="login-card">
+            <div class="login-icon">👑</div>
+            <h2>Khan Jee Admin Portal</h2>
+            <p>Enter your administrator security PIN to manage orders, menu dishes, and reservations.</p>
+
+            <div class="login-hint">
+                🔑 Default Demo Password: <strong>admin123</strong>
+            </div>
+
+            <form id="adminLoginForm">
+                <div class="adm-form-group" style="margin-bottom:18px;">
+                    <label style="text-align:left;" for="adminPinInput">Admin PIN / Password</label>
+                    <input type="password" id="adminPinInput" placeholder="Enter PIN..." value="admin123" required>
+                </div>
+                <button type="submit" class="btn-adm-primary" style="width:100%; justify-content:center; padding:12px; font-size:1rem; margin-bottom:12px;">
+                    Unlock Dashboard 🚀
+                </button>
+            </form>
+
+            <button type="button" class="btn-storefront" id="btnQuickDemoLogin" style="width:100%; border:1px dashed var(--primary); color:var(--primary-light);">
+                ⚡ Quick 1-Click Demo Login
+            </button>
+
+            <div style="margin-top:20px;">
+                <a href="index.html" style="color:var(--text-muted); font-size:0.85rem;">← Back to Restaurant Website</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="admin-logo-icon">👑</div>
+                <div class="admin-logo-text">
+                    <h3>KHAN JEE</h3>
+                    <span>Executive Admin</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-section-title">Core Management</div>
+                
+                <div class="sidebar-item active" data-tab="dashboard">
+                    <span class="item-icon">📊</span>
+                    <span>Dashboard Overview</span>
+                </div>
+
+                <div class="sidebar-item" data-tab="orders">
+                    <span class="item-icon">📦</span>
+                    <span>Orders Manager</span>
+                    <span class="badge-count" id="badgePendingOrders" style="display:none;">0</span>
+                </div>
+
+                <div class="sidebar-item" data-tab="menu">
+                    <span class="item-icon">🍲</span>
+                    <span>Menu Dishes (CRUD)</span>
+                </div>
+
+                <div class="sidebar-item" data-tab="reservations">
+                    <span class="item-icon">📅</span>
+                    <span>Table Bookings</span>
+                    <span class="badge-count" id="badgePendingRes" style="display:none;">0</span>
+                </div>
+
+                <div class="menu-section-title">Settings & System</div>
+
+                <div class="sidebar-item" data-tab="settings">
+                    <span class="item-icon">⚙️</span>
+                    <span>Restaurant Settings</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank" class="btn-storefront">
+                    <span>🌐</span>
+                    <span>View Customer Website</span>
+                </a>
+                <button class="btn-storefront" onclick="adminLogout()" style="color:#f87171;">
+                    <span>🚪</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <div class="admin-main">
+            <!-- Topbar Header -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button id="adminMobileSidebarToggle" style="display:none; font-size:1.4rem; color:#fff;">☰</button>
+                    <div class="topbar-title">
+                        <h2 id="topbarPageTitle">Dashboard Overview</h2>
+                        <p>Real-time analytics and management for Khan Jee Restaurant Jacobabad</p>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="live-time-badge">
+                        <span class="live-indicator"></span>
+                        <span id="adminLiveClock">00:00:00 PM</span>
+                    </div>
+
+                    <div class="admin-profile">
+                        <div class="admin-avatar">KJ</div>
+                        <div style="font-size:0.85rem; line-height:1.2;">
+                            <div style="font-weight:700; color:#fff;">Manager Khan</div>
+                            <div style="font-size:0.75rem; color:var(--primary-light);">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tab Contents -->
+            <main class="admin-content">
+                
+                <!-- TAB 1: DASHBOARD OVERVIEW -->
+                <section class="tab-pane active" id="tab-dashboard">
+                    <!-- Metrics Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <h4>Total Revenue</h4>
+                                <div class="metric-value" id="dashTotalRevenue">Rs. 0</div>
+                                <div class="metric-trend trend-up">
+                                    <span>↑ 18.4%</span> vs last week
+                                </div>
+                            </div>
+                            <div class="metric-icon-box icon-revenue">💰</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <h4>Total Orders</h4>
+                                <div class="metric-value" id="dashTotalOrders">0</div>
+                                <div class="metric-trend trend-up">
+                                    <span>↑ Live Real-time Sync</span>
+                                </div>
+                            </div>
+                            <div class="metric-icon-box icon-orders">📦</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <h4>Menu Dishes</h4>
+                                <div class="metric-value" id="dashTotalMenuItems">0</div>
+                                <div class="metric-trend">
+                                    <span>Available on website</span>
+                                </div>
+                            </div>
+                            <div class="metric-icon-box icon-menu">🍲</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <h4>Reservations</h4>
+                                <div class="metric-value" id="dashTotalReservations">0</div>
+                                <div class="metric-trend trend-warning">
+                                    <span>VIP Tables Booked</span>
+                                </div>
+                            </div>
+                            <div class="metric-icon-box icon-res">📅</div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Sections Grid -->
+                    <div class="dashboard-grid">
+                        <!-- Left: Recent 5 Orders -->
+                        <div class="dash-panel">
+                            <div class="dash-panel-header">
+                                <h3><span>📦</span> Recent Incoming Orders</h3>
+                                <a href="javascript:void(0)" class="view-all-link" onclick="document.querySelector('.sidebar-item[data-tab=\'orders\']').click()">View All Orders →</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Items</th>
+                                            <th>Bill</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dashRecentOrdersTbody">
+                                        <!-- Rendered by js/admin.js -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Right: Popular Categories & Quick Actions -->
+                        <div class="dash-panel">
+                            <div class="dash-panel-header">
+                                <h3><span>🔥</span> Best Selling Categories</h3>
+                            </div>
+                            <div class="popular-list" id="dashCategoryBars">
+                                <!-- Rendered by js/admin.js -->
+                            </div>
+
+                            <div style="margin-top:30px; padding-top:20px; border-top:1px solid var(--adm-border);">
+                                <h4 style="font-size:0.95rem; color:#fff; margin-bottom:12px;">Quick Short-cuts</h4>
+                                <div style="display:flex; flex-direction:column; gap:8px;">
+                                    <button class="btn-adm-primary" onclick="openAddMenuItemModal()" style="width:100%; justify-content:center;">
+                                        + Add New Dish to Menu
+                                    </button>
+                                    <button class="btn-storefront" onclick="exportDataBackup()" style="width:100%;">
+                                        💾 Download JSON Data Backup
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: ORDERS MANAGER -->
+                <section class="tab-pane" id="tab-orders">
+                    <div class="dash-panel">
+                        <div class="adm-toolbar">
+                            <div class="adm-search-wrap">
+                                <span class="adm-search-icon">🔍</span>
+                                <input type="text" id="adminOrderSearch" placeholder="Search orders (ID, Name, Phone)...">
+                            </div>
+
+                            <div class="adm-filter-group">
+                                <label style="font-size:0.85rem; color:var(--text-muted);">Status Filter:</label>
+                                <select class="adm-select" id="adminOrderStatusSelect">
+                                    <option value="all">All Orders</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="preparing">Preparing</option>
+                                    <option value="out for delivery">Out for Delivery</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer Details</th>
+                                        <th>Dishes & Service</th>
+                                        <th>Total Bill</th>
+                                        <th>Change Status</th>
+                                        <th>Placed At</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableTbody">
+                                    <!-- Rendered by js/admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 3: MENU MANAGEMENT (CRUD) -->
+                <section class="tab-pane" id="tab-menu">
+                    <div class="dash-panel">
+                        <div class="adm-toolbar">
+                            <div class="adm-search-wrap">
+                                <span class="adm-search-icon">🔍</span>
+                                <input type="text" id="adminMenuSearch" placeholder="Search dish name or description...">
+                            </div>
+
+                            <div class="adm-filter-group">
+                                <select class="adm-select" id="adminMenuCategorySelect">
+                                    <option value="all">All Categories</option>
+                                    <option value="karahi">Karahi & Handi</option>
+                                    <option value="biryani">Royal Biryani</option>
+                                    <option value="bbq">BBQ & Grills</option>
+                                    <option value="desi">Desi Delicacies</option>
+                                    <option value="fastfood">Fast Food</option>
+                                    <option value="breads">Tandoor & Breads</option>
+                                    <option value="desserts">Desserts & Drinks</option>
+                                </select>
+
+                                <button class="btn-adm-primary" onclick="openAddMenuItemModal()">
+                                    + Add New Dish
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Dish Name & Description</th>
+                                        <th>Category</th>
+                                        <th>Price (PKR)</th>
+                                        <th>Availability</th>
+                                        <th>Badges</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="menuTableTbody">
+                                    <!-- Rendered by js/admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 4: RESERVATIONS MANAGER -->
+                <section class="tab-pane" id="tab-reservations">
+                    <div class="dash-panel">
+                        <div class="adm-toolbar">
+                            <div class="adm-search-wrap">
+                                <span class="adm-search-icon">🔍</span>
+                                <input type="text" id="adminResSearch" placeholder="Search guest name or phone...">
+                            </div>
+
+                            <div class="adm-filter-group">
+                                <select class="adm-select" id="adminResStatusSelect">
+                                    <option value="all">All Bookings</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Guest Name</th>
+                                        <th>Guests & Seating</th>
+                                        <th>Date & Time</th>
+                                        <th>Special Note</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reservationsTableTbody">
+                                    <!-- Rendered by js/admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 5: RESTAURANT SETTINGS -->
+                <section class="tab-pane" id="tab-settings">
+                    <div class="dash-panel" style="max-width:800px;">
+                        <div class="dash-panel-header">
+                            <h3><span>⚙️</span> Restaurant Information & Configuration</h3>
+                        </div>
+
+                        <form id="settingsForm" onsubmit="event.preventDefault(); saveSettingsForm();">
+                            <div class="adm-form-grid">
+                                <div class="adm-form-group">
+                                    <label for="setRestName">Restaurant Name</label>
+                                    <input type="text" id="setRestName" required>
+                                </div>
+
+                                <div class="adm-form-group">
+                                    <label for="setPhone">Hotline Phone</label>
+                                    <input type="text" id="setPhone" required>
+                                </div>
+
+                                <div class="adm-form-group full">
+                                    <label for="setAddress">Physical Address</label>
+                                    <input type="text" id="setAddress" required>
+                                </div>
+
+                                <div class="adm-form-group">
+                                    <label for="setHours">Operating Hours</label>
+                                    <input type="text" id="setHours" required>
+                                </div>
+
+                                <div class="adm-form-group">
+                                    <label for="setAdminPin">Admin Security PIN</label>
+                                    <input type="text" id="setAdminPin" required>
+                                </div>
+
+                                <div class="adm-form-group">
+                                    <label for="setDeliveryFee">Default Delivery Fee (Rs.)</label>
+                                    <input type="number" id="setDeliveryFee" required>
+                                </div>
+
+                                <div class="adm-form-group">
+                                    <label for="setFreeThreshold">Free Delivery Order Min (Rs.)</label>
+                                    <input type="number" id="setFreeThreshold" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-adm-primary" style="padding:12px 28px;">
+                                Save Restaurant Settings 💾
+                            </button>
+                        </form>
+
+                        <div style="margin-top:40px; padding-top:25px; border-top:1px solid var(--adm-border);">
+                            <h4 style="font-size:1.1rem; color:#fff; margin-bottom:12px;">Database & Backup Tools</h4>
+                            <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                                <button type="button" class="btn-storefront" onclick="exportDataBackup()">
+                                    📥 Export Complete JSON Backup
+                                </button>
+                                <button type="button" class="btn-adm-danger" onclick="resetAllDataToDefault()">
+                                    🔄 Reset All Data to Fresh Demo State
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal 1: Add / Edit Dish Modal -->
+    <div class="adm-modal-overlay" id="menuItemFormModal">
+        <div class="adm-modal">
+            <div class="adm-modal-header">
+                <h3 id="menuModalTitle">Add New Royal Dish</h3>
+                <button class="close-btn" onclick="closeAdminModal('menuItemFormModal')">✕</button>
+            </div>
+            <div class="adm-modal-body">
+                <form id="menuItemForm" onsubmit="event.preventDefault(); saveMenuItemForm();">
+                    <div class="adm-form-grid">
+                        <div class="adm-form-group full">
+                            <label for="dishName">Dish Title *</label>
+                            <input type="text" id="dishName" placeholder="e.g. Peshawari Shinwari Karahi" required>
+                        </div>
+
+                        <div class="adm-form-group">
+                            <label for="dishCategory">Category *</label>
+                            <select id="dishCategory" class="adm-select" required>
+                                <option value="karahi">Karahi & Handi</option>
+                                <option value="biryani">Royal Biryani & Rice</option>
+                                <option value="bbq">BBQ & Grills</option>
+                                <option value="desi">Desi Delicacies</option>
+                                <option value="fastfood">Fast Food</option>
+                                <option value="breads">Tandoor & Breads</option>
+                                <option value="desserts">Desserts & Drinks</option>
+                            </select>
+                        </div>
+
+                        <div class="adm-form-group">
+                            <label for="dishPrice">Selling Price (Rs.) *</label>
+                            <input type="number" id="dishPrice" placeholder="950" required>
+                        </div>
+
+                        <div class="adm-form-group">
+                            <label for="dishOldPrice">Original / Cut Price (Rs.)</label>
+                            <input type="number" id="dishOldPrice" placeholder="1100">
+                        </div>
+
+                        <div class="adm-form-group">
+                            <label for="dishSpice">Spice Level</label>
+                            <select id="dishSpice" class="adm-select">
+                                <option value="mild">Mild (Creamy / Low Spice)</option>
+                                <option value="medium" selected>Medium (Traditional)</option>
+                                <option value="spicy">Spicy (Fiery Chillies)</option>
+                            </select>
+                        </div>
+
+                        <div class="adm-form-group full">
+                            <label for="dishDesc">Description & Ingredients *</label>
+                            <textarea id="dishDesc" rows="3" placeholder="Tender mutton slow cooked in iron wok with fresh tomatoes and crushed black pepper..." required></textarea>
+                        </div>
+
+                        <div class="adm-form-group full">
+                            <label for="dishImage">Image URL *</label>
+                            <input type="url" id="dishImage" placeholder="https://images.unsplash.com/..." required>
+                            
+                            <!-- Quick Image Presets -->
+                            <div style="margin-top:8px; font-size:0.78rem; color:var(--text-muted);">
+                                Quick Pick Authentic Food Photos:
+                                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
+                                    <button type="button" class="status-pill status-preparing" onclick="setPresetImage('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80')">Biryani</button>
+                                    <button type="button" class="status-pill status-preparing" onclick="setPresetImage('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80')">Karahi</button>
+                                    <button type="button" class="status-pill status-preparing" onclick="setPresetImage('https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80')">BBQ Tikka</button>
+                                    <button type="button" class="status-pill status-preparing" onclick="setPresetImage('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80')">Seekh Kebab</button>
+                                    <button type="button" class="status-pill status-preparing" onclick="setPresetImage('https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80')">Naan</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="adm-form-group full" style="display:flex; flex-direction:row; gap:20px; align-items:center; margin-top:8px;">
+                            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                                <input type="checkbox" id="dishIsVeg"> 🥬 Vegetarian
+                            </label>
+                            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                                <input type="checkbox" id="dishIsPopular"> 🔥 Best Seller
+                            </label>
+                            <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                                <input type="checkbox" id="dishIsFeatured"> ⭐ Featured on Hero
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
+                        <button type="button" class="btn-storefront" onclick="closeAdminModal('menuItemFormModal')">Cancel</button>
+                        <button type="submit" class="btn-adm-primary">Save Dish to Menu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: View Order Details Modal -->
+    <div class="adm-modal-overlay" id="orderDetailModal">
+        <div class="adm-modal">
+            <div class="adm-modal-header">
+                <h3>Order Information & KOT</h3>
+                <button class="close-btn" onclick="closeAdminModal('orderDetailModal')">✕</button>
+            </div>
+            <div class="adm-modal-body" id="orderDetailContent">
+                <!-- Rendered by js/admin.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
